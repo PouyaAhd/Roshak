@@ -3,7 +3,7 @@ import React from "react";
 
 function index() {
   return (
-    <div className="flex justify-between flex-col md:flex-row items-stretch w-full md:w-[60%] m-auto md:h-[25vh] px-3 md:px-0" >
+    <div className="flex justify-between flex-col md:flex-row items-stretch w-full md:w-[60%] m-auto md:h-[25vh] px-3 md:px-0 pt-7" >
       <div className="w-full flex flex-col justify-between">
         <h1 className=" text-3xl ml-3 font-bold">Partnership</h1>
         <div className="flex items-end">
