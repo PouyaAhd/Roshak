@@ -84,7 +84,8 @@ function Index() {
   };
   return (
     <div className="shadow-shadowSite">
-      <div className=" grid-cols-3 w-max m-auto gap-16 text-center my-10 pb-16 hidden md:grid  ">
+      <h2 className="my-10 text-center font-bold text-[30px]">Meet The Team</h2>
+      <div className=" grid-cols-3 w-max m-auto gap-16 text-center  pb-16 hidden md:grid  ">
         {data.map((e) => {
           return (
             <div key={e.id}>
