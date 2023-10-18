@@ -36,7 +36,7 @@ function Index({  }) {
           </div>
           <div className="flex items-center gap-5">
             <div className="w-[30px] h-[30px] bg-lightGreen rounded-full" />
-            <p className="text-darkGreen text-[15px] mq1070:w-full w-[300px] md:w-max">
+            <p className="text-darkGreen text-[15px] mq1070:w-[85%] w-[300px] md:w-max">
               Full Search Engine Optimization Package (SEO)
             </p>
           </div>
