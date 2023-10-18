@@ -59,7 +59,7 @@ function Index() {
       
       <div
         onClick={() => refSliderSlider.current.slickPrev()}
-        className=" absolute z-10 cursor-pointer px-2 py-[10px] left-[13px] top-32 shadow-2xl  rounded-sm"
+        className=" absolute z-10 cursor-pointer px-2 py-[10px] left-[13px] md:left-[180px] mq1300:left-[80px] top-32 shadow-2xl  rounded-sm"
       >
         <Image
           src="/assets/icons/left.svg"
@@ -87,7 +87,7 @@ function Index() {
 
       <div
         onClick={() => refSliderSlider.current.slickNext()}
-        className=" absolute z-10 cursor-pointer px-2 py-[10px]  right-[13px] top-32 shadow-2xl  rounded-sm"
+        className=" absolute z-10 cursor-pointer px-2 py-[10px] right-[13px]  md:right-[180px] mq1300:right-[80px] top-32 shadow-2xl  rounded-sm"
       >
         <Image
           src="/assets/icons/right.svg"
