@@ -2,14 +2,14 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { BsSearch } from "react-icons/bs";
-import { WidthCatcher } from "@/components/widthCatcher";
+import { WidthCatcher } from "@/utils/widthCatcher";
 
 function Index() {
   const [width, setWidth] = useState(0);
   const [inputToggle, setInputToggle] = useState(false);
   WidthCatcher(setWidth);
   return (
-    <header className="bg-darkGray w-full p-4 md:p-3 shadow-headerShado z-30 fixed   ">
+    <header className="bg-darkGray w-full p-4 md:p-3 shadow-headerShado z-50 fixed   ">
       <div className="flex flex-row-reverse md:flex-row justify-between items-center mq1292:w-[70%] mq1128:w-full md:w-[62%] m-auto text-white mt-1 ">
         <div className="md:hidden">
           <Image src="/assets/icons/menu.svg" width={30} height={30} alt="" />

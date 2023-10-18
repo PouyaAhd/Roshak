@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { store } from "@/store/store";
 import { Provider } from "react-redux";
 import Layout from "@/components/layout";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,6 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+    
       <body className={inter.className}>
         <Provider store={store}>
           <Layout>{children}</Layout>

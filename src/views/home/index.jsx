@@ -6,13 +6,13 @@ import {
   decrement,
   incrementByAmount
 } from "@/features/counter/counterSlice";
-import FirstView from "@/views/first-view";
-import ServiceInfo from "@/views/services-infos";
-import Project from "@/views/projects";
-import Team from "@/views/team";
-import Partnership from "@/views/partnership";
-import ContactUs from "@/views/contact-us";
-import Services from "@/views/services";
+import FirstView from "@/components/ui/first-view";
+import ServiceInfo from "@/components/ui/services-infos";
+import Project from "@/components/ui/projects";
+import Team from "@/components/ui/team";
+import Partnership from "@/components/ui/partnership";
+import ContactUs from "@/components/ui/contact-us";
+import Services from "@/components/ui/services";
 
 function Index() {
   const [toggle, setToggle] = useState(false);

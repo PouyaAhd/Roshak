@@ -36,12 +36,13 @@ function Index() {
   ];
   return (
     <div className="h-[45vh]  bg-darkerGreen flex justify-center items-center">
+   
       <Swiper
         className="md:w-[70%] w-[80%] m-auto"
         // install Swiper modules
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={width > 728 ? 0 : 20}
-        slidesPerView={width > 999 ? 4 : width>768 ? 3: 2}
+        slidesPerView={width > 999 ? 4 : width > 768 ? 3 : 2}
         navigation
         // pagination={{ clickable: true }}
         // scrollbar={{ draggable: true }}
