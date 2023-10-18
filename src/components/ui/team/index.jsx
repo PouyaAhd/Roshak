@@ -1,15 +1,9 @@
-"use client"
+"use client";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+import React, { useEffect, useState, useRef } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function Index() {
   const data = [
@@ -50,28 +44,50 @@ function Index() {
       src: "/assets/images/img1.jpg"
     }
   ];
-   const [width, setWidth] = useState(0);
-   useEffect(() => {
-     function handleResize() {
-       setWidth(window.innerWidth);
-     }
 
-     window.addEventListener("resize", handleResize);
 
-     handleResize();
-
-     return () => {
-       window.removeEventListener("resize", handleResize);
-     };
-   }, []);
+  const refSliderProduct = useRef();
+  const refSliderSlider = useRef();
+  const settingsProduct = {
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    dots: false,
+    arrows: false,
+    autoplay: true,
+    responsive: [
+      {
+        breakpoint: 980,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 2
+        }
+      }
+    ]
+  };
+  const settingsSlider = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    dots: false,
+    arrows: false,
+    autoplay: true,
+    responsive: [
+      {
+        breakpoint: 980,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 2
+        }
+      }
+    ]
+  };
   return (
-    <div className="my-16 shadow-custom">
-      <h1 className="text-center font-bold text-3xl ">Meet The Team!</h1>
+    <>
       <div className=" grid-cols-3 w-max m-auto gap-16 text-center my-10 pb-16 hidden md:grid">
         {data.map((e) => {
           return (
             <div key={e.id}>
-              {/* <div className="w-[150px] h-[150px] bg-[#d1d1d1] rounded-xl" /> */}
               <Image src={e.src} width={150} height={100} alt="" />
               <h2 className="text-md font-medium">{e.name}</h2>
               <p className="text-[13px] font-light">{e.job}</p>
@@ -79,37 +95,56 @@ function Index() {
           );
         })}
       </div>
-      <div className="md:hidden pb-10 mt-5">
-        <Swiper
-          className="w-[70%] m-auto"
-          // install Swiper modules
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={width > 728 ? 0 : 20}
-          slidesPerView={width > 728 ? 4 : 1}
-          navigation
-          // pagination={{ clickable: true }}
-          // scrollbar={{ draggable: true }}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log("slide change")}
+      <div className="relative pb-10 mt-10 md:hidden">
+        <div
+          onClick={() => refSliderSlider.current.slickPrev()}
+          className=" absolute z-10 cursor-pointer px-2 py-[10px] left-[13px] top-32 shadow-2xl  rounded-sm"
         >
-          {data.map((e) => {
-            return (
-              <SwiperSlide key={e.id}>
-                {" "}
-                <div className="" >
+          <Image
+            src="/assets/icons/leftBlack.svg"
+            width={30}
+            height={10}
+            alt="test"
+          />
+        </div>
+        <div className="w-[70%] m-auto">
+          <Slider ref={refSliderSlider} {...settingsSlider}>
+            {data.map((e) => {
+              return (
+                <div key={e.id} className="">
                   {/* <div className="w-[150px] h-[150px] bg-[#d1d1d1] rounded-xl" /> */}
-                  <Image className="w-full" src={e.src} width={150} height={100} alt="" />
-                  <h2 className="text-md text-center font-bold my-2">{e.name}</h2>
+                  <Image
+                    className="w-full"
+                    src={e.src}
+                    width={150}
+                    height={100}
+                    alt=""
+                  />
+                  <h2 className="text-md text-center font-bold my-2">
+                    {e.name}
+                  </h2>
                   <p className="text-[13px] text-center font-light">{e.job}</p>
                 </div>
-              </SwiperSlide>
-            );
-          })}
-         
-        </Swiper>
+              );
+            })}
+          </Slider>
+        </div>
+
+        <div
+          onClick={() => refSliderSlider.current.slickNext()}
+          className=" absolute z-10 cursor-pointer px-2 py-[10px]  right-[13px] top-32 shadow-2xl  rounded-sm"
+        >
+          <Image
+            src="/assets/icons/rightBlack.svg"
+            width={30}
+            height={10}
+            alt="test"
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
 export default Index;
+

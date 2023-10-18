@@ -1,31 +1,12 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+import React, { useState, useEffect, useRef } from "react";
+import Slider from "react-slick";
 import Image from "next/image";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function Index() {
-  const [width, setWidth] = useState(0);
-  useEffect(() => {
-    function handleResize() {
-      setWidth(window.innerWidth);
-    }
 
-    window.addEventListener("resize", handleResize);
-
-    handleResize();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   const data = [
     { id: 1, url: "/assets/images/5.svg", title: "Laveen Gallery" },
@@ -34,24 +15,62 @@ function Index() {
     { id: 4, url: "/assets/images/8.svg", title: "roshak" },
     { id: 5, url: "/assets/images/5.svg", title: "Laveen Gallery" }
   ];
+
+
+
+  const refSliderProduct = useRef();
+  const refSliderSlider = useRef();
+  const settingsProduct = {
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    dots: false,
+    arrows: false,
+    autoplay: true,
+    responsive: [
+      {
+        breakpoint: 980,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 2
+        }
+      }
+    ]
+  };
+  const settingsSlider = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    dots: false,
+    arrows: false,
+    autoplay: true,
+    responsive: [
+      {
+        breakpoint: 980,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 2
+        }
+      }
+    ]
+  };
   return (
-    <div className="h-[45vh]  bg-darkerGreen flex justify-center items-center">
-   
-      <Swiper
-        className="md:w-[70%] w-[80%] m-auto"
-        // install Swiper modules
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={width > 728 ? 0 : 20}
-        slidesPerView={width > 999 ? 4 : width > 768 ? 3 : 2}
-        navigation
-        // pagination={{ clickable: true }}
-        // scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
+    <div className="relative pb-10 bg-darkerGreen">
+      <div
+        onClick={() => refSliderSlider.current.slickPrev()}
+        className=" absolute z-10 cursor-pointer px-2 py-[10px] left-[13px] top-32 shadow-2xl  rounded-sm"
       >
-        {data.map((e) => (
-          <SwiperSlide key={e.id}>
-            <div className="text-center">
+        <Image
+          src="/assets/icons/left.svg"
+          width={30}
+          height={10}
+          alt="test"
+        />
+      </div>
+      <div className="w-[70%] m-auto">
+        <Slider ref={refSliderSlider} {...settingsSlider}>
+          {data.map((e) => (
+            <div key={e.id} className="text-center mt-10">
               <Image
                 className="border-2 rounded-3xl   m-auto"
                 src={e.url}
@@ -61,11 +80,24 @@ function Index() {
               />
               <p className="text-white py-3 text-xs">{e.title}</p>
             </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+          ))}
+        </Slider>
+      </div>
+
+      <div
+        onClick={() => refSliderSlider.current.slickNext()}
+        className=" absolute z-10 cursor-pointer px-2 py-[10px]  right-[13px] top-32 shadow-2xl  rounded-sm"
+      >
+        <Image
+          src="/assets/icons/right.svg"
+          width={30}
+          height={10}
+          alt="test"
+        />
+      </div>
     </div>
   );
 }
 
 export default Index;
+
