@@ -83,8 +83,8 @@ function Index() {
     ]
   };
   return (
-    <>
-      <div className=" grid-cols-3 w-max m-auto gap-16 text-center my-10 pb-16 hidden md:grid">
+    <div className="shadow-shadowSite">
+      <div className=" grid-cols-3 w-max m-auto gap-16 text-center my-10 pb-16 hidden md:grid  ">
         {data.map((e) => {
           return (
             <div key={e.id}>
@@ -142,7 +142,7 @@ function Index() {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

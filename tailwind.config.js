@@ -19,7 +19,7 @@ module.exports = {
         innerCustom: "inset 0px 0px 45px 20px rgb(0 0 0 / 0.25);",
         headerShado: "0px 20px 50px 0px #00000080;",
         slowShadow: " 0px 4px 4px 0px #00000040",
-        pouya: "inset 0px -4px 200px 0px #00000080 "
+        shadowSite: " 0px 4px 20px 0px #00000040"
       },
       screens: {
         mq1476: { max: "1476px" },
@@ -48,6 +48,3 @@ module.exports = {
   },
   plugins: []
 };
-
-
-
