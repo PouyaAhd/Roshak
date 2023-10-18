@@ -56,6 +56,7 @@ function Index() {
   };
   return (
     <div className="relative pb-10 bg-darkerGreen">
+      
       <div
         onClick={() => refSliderSlider.current.slickPrev()}
         className=" absolute z-10 cursor-pointer px-2 py-[10px] left-[13px] top-32 shadow-2xl  rounded-sm"

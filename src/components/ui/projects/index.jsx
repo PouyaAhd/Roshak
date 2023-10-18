@@ -9,7 +9,7 @@ function Index({ setToggle, toggle }) {
   WidthCatcher(setWidth);
 
   return (
-    <div className="w-full h-[40vh] bg-gradient-to-r from-[#4AF5D7] to-[#35B19B] flex items-center justify-center">
+    <div className="w-full md:p-16 h-[40vh] md:h-max bg-gradient-to-r from-[#4AF5D7] to-[#35B19B] flex items-center justify-center">
       <div className="flex items-center md:gap-[80px] relative -mb-8 md:-mb-0">
         <div className="text-end text-white w-full md:w-max">
           <h1 className="text-2xl md:text-[50px]  text-white text-start pl-2 md:pl-0">
@@ -51,11 +51,11 @@ function Index({ setToggle, toggle }) {
           <Image src="/assets/icons/grid.svg" width={100} height={100} alt="" />
         </div>
         {toggle && (
-          <div className="absolute -bottom-[80px] md:-bottom-[80px] right-6 md:-right-1 ">
+          <div className="absolute -bottom-[80px] md:-bottom-[70px] right-6 md:-right-1 ">
             <Image
               className=""
               src="/assets/images/Frame2.svg"
-              width={width>768?220:120}
+              width={width > 768 ? 220 : 120}
               height={100}
               alt=""
             />{" "}
