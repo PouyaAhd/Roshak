@@ -1,11 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  increment,
-  decrement,
-  incrementByAmount
-} from "@/features/counter/counterSlice";
 import FirstView from "@/components/ui/first-view";
 import ServiceInfo from "@/components/ui/services-infos";
 import Project from "@/components/ui/projects";
